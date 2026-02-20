@@ -23,13 +23,13 @@ def add_user():
     if request.method == 'POST':
         name = request.form['name']
         email = request.form['email']
-        cur = mysql.connection.cursor()
+        cur - mysql.connection.cursor()
         cur.execute("INSERT INTO users (name, email) VALUES (%s, %s)", (name, email))
         mysql.connection.commit()
         cur.close()
         return redirect(url_for('index'))
 
-@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+@app.route('/edit/<int:id>', methods=['POST', 'GET'])
 def edit_user(id):
     if request.method == 'POST':
         name = request.form['name']
